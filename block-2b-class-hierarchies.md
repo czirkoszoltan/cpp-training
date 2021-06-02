@@ -1,4 +1,4 @@
-# C++: class hierarchies, smart pointers
+# Class hierarchies, smart pointers
 
 ## Example: expressions
 
