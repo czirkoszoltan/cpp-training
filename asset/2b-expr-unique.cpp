@@ -8,6 +8,11 @@ class Expression {
     virtual ~Expression() = default;
 };
 
+std::ostream & operator<< (std::ostream & os, Expression const & e) {
+    e.print(os);
+    return os;
+}
+
 class Constant final: public Expression {
   private:
     double c;
@@ -87,7 +92,6 @@ int main() {
             std::make_unique<Variable>()
         )
     );
-    e->print(std::cout);
-    std::cout << '=';
-    std::cout << e->evaluate(10) << std::endl;
+    std::cout << "f(x) = " << *e << std::endl;
+    std::cout << "f(10) = " << e->evaluate(10) << std::endl;
 }
