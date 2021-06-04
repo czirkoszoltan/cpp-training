@@ -254,7 +254,7 @@ String String::operator+(String const &rhs) const {
     return concat;
 }
 
-// Boilerplate code, we have to create this by hand.
+// Boilerplate code, we have to create this manually.
 String& String::operator+=(String const &rhs) {
     *this = *this + rhs;
     return *this;

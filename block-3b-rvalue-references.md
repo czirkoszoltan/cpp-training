@@ -315,4 +315,4 @@ class MyClass {
 };
 ```
 
-However, the best way to write code is to use STL containers, and to refactor all resource management to separate classes. This way we can avoid implementing destructors by hand.
+However, the best way to write code is to use STL containers, and to refactor all resource management to separate classes. This way we can avoid manual implementation of destructors.

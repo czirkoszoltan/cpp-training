@@ -114,7 +114,7 @@ int main() {
 - The object has two children, which can be any kind of expressions (polymorphic).
 - So it cannot store these by value, because each subtype of the expression class has different size (`Variable` has no member, `Constant` has one member of type `double` etc.)
 - An indirection solves the problem: the object will store a *pointer* to each children.
-- Unfortunately the lifetime and memory management of the container`Sum` and its two children `Expression` is decoupled. When a `Sum` is destroyed, only the contained pointers are destroyed, but not the subtrees. We have to do the memory management by hand: allocate the subtrees from the free store with new, and delete them in the destructor.
+- Unfortunately the lifetime and memory management of the container `Sum` and its two children `Expression` is decoupled. When a `Sum` is destroyed, only the contained pointers are destroyed, but not the subtrees. We have to do manual memory management: allocate the subtrees from the free store with new, and delete them in the destructor.
 - Here we can see the importance of the virtual destructor in the base class. `delete left` and `delete right` call the destructors of the subobjects, but the static type of the pointers is `Expression*`. Yet, the proper destructor must be called.
 - Remember, classes implementing their own destructor should have copy constructors and assignment operators. We do not implement those now, however we use `= delete` to prevent accidental call of the functions.
 

@@ -73,7 +73,7 @@ for (int i = 1; i <= 20; ++i)
     }));
 ```
 
-Generally we do not `lock()` and `unlock()` the thread by hand. It's better to use
+Generally we do not `lock()` and `unlock()` the thread manually. It's better to use
 a `std::lock_guard`. Its ctor locks, and dtor unlocks a mutex. This way we cannot
 forget to do so, and also we can throw exceptions freely – this is RAII (resource acquisition
 is initialization) for the mutexes.
